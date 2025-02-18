@@ -8,14 +8,15 @@ export default function StatisticsChart() {
   const series = Object.keys(dairaData).map((dairaName) => {
     // Typecast dairaName to keyof DairaData to ensure it is a valid key
     const key = dairaName as keyof DairaData;
+    const totalOrders = dairaData[key].reduce((sum, order) => sum + order, 0); // Total count of orders for the daïra
     return {
       name: dairaName,
-      data: [dairaData[key].reduce((sum, order) => sum + order, 0)], // Total count of orders for the daïra
+      data: [totalOrders], // Total count of orders for the daïra
     };
   });
 
   // X-axis categories are now the names of the daïras
-  const allCategories = Object.keys(dairaData) as (keyof DairaData)[];
+  const allCategories = Object.keys(dairaData);
 
   // Chart options
   const options: ApexOptions = {
