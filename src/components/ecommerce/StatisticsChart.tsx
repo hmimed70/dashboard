@@ -1,34 +1,42 @@
 import React from "react";
 import Chart from "react-apexcharts";
 import { ApexOptions } from "apexcharts";
-import ChartTab from "../common/ChartTab";
+import { dairaData, DairaData } from "../../data"; // Import the correct types
 
 export default function StatisticsChart() {
+  // Prepare the series data for each daïra
+  const series = Object.keys(dairaData).map((dairaName) => {
+    // Typecast dairaName to keyof DairaData to ensure it is a valid key
+    const key = dairaName as keyof DairaData;
+    return {
+      name: dairaName,
+      data: [dairaData[key].reduce((sum, order) => sum + order, 0)], // Total count of orders for the daïra
+    };
+  });
+
+  // X-axis categories are now the names of the daïras
+  const allCategories = Object.keys(dairaData) as (keyof DairaData)[];
+
+  // Chart options
   const options: ApexOptions = {
     legend: {
-      show: false, // Hide legend
+      show: true, // Show legend to differentiate between daïra regions
       position: "top",
       horizontalAlign: "left",
     },
-    colors: ["#465FFF", "#9CB9FF"], // Define line colors
+    colors: series.map((_, index) => `hsl(${(index * 40) % 360}, 70%, 60%)`), // Generate dynamic colors
     chart: {
       fontFamily: "Outfit, sans-serif",
       height: 310,
-      type: "line", // Set the chart type to 'line'
+      type: "bar", // Changed to 'bar' to represent the count of orders visually
       toolbar: {
         show: false, // Hide chart toolbar
       },
     },
-    stroke: {
-      curve: "straight", // Define the line style (straight, smooth, or step)
-      width: [2, 2], // Line width for each dataset
-    },
-
-    fill: {
-      type: "gradient",
-      gradient: {
-        opacityFrom: 0.55,
-        opacityTo: 0,
+    plotOptions: {
+      bar: {
+        columnWidth: "80%", // Control the bar width
+        distributed: true, // Distribute the bars evenly
       },
     },
     markers: {
@@ -52,7 +60,7 @@ export default function StatisticsChart() {
       },
     },
     dataLabels: {
-      enabled: false, // Disable data labels
+      enabled: true, // Enable data labels to show total count on each bar
     },
     tooltip: {
       enabled: true, // Enable tooltip
@@ -62,20 +70,7 @@ export default function StatisticsChart() {
     },
     xaxis: {
       type: "category", // Category-based x-axis
-      categories: [
-        "Jan",
-        "Feb",
-        "Mar",
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ],
+      categories: allCategories, // Use the names of all daïras
       axisBorder: {
         show: false, // Hide x-axis border
       },
@@ -83,7 +78,7 @@ export default function StatisticsChart() {
         show: false, // Hide x-axis ticks
       },
       tooltip: {
-        enabled: false, // Disable tooltip for x-axis points
+        enabled: true, // Enable tooltip for x-axis points
       },
     },
     yaxis: {
@@ -94,24 +89,14 @@ export default function StatisticsChart() {
         },
       },
       title: {
-        text: "", // Remove y-axis title
+        text: "Total Orders", // Set y-axis title to 'Total Orders'
         style: {
-          fontSize: "0px",
+          fontSize: "14px",
         },
       },
     },
   };
 
-  const series = [
-    {
-      name: "Sales",
-      data: [180, 190, 170, 160, 175, 165, 170, 205, 230, 210, 240, 235],
-    },
-    {
-      name: "Revenue",
-      data: [40, 30, 50, 40, 55, 40, 70, 100, 110, 120, 150, 140],
-    },
-  ];
   return (
     <div className="rounded-2xl border border-gray-200 bg-white px-5 pb-5 pt-5 dark:border-gray-800 dark:bg-white/[0.03] sm:px-6 sm:pt-6">
       <div className="flex flex-col gap-5 mb-6 sm:flex-row sm:justify-between">
@@ -120,17 +105,14 @@ export default function StatisticsChart() {
             Statistics
           </h3>
           <p className="mt-1 text-gray-500 text-theme-sm dark:text-gray-400">
-            Target you’ve set for each month
+            Orders by daïra with total counts
           </p>
-        </div>
-        <div className="flex items-start w-full gap-3 sm:justify-end">
-          <ChartTab />
         </div>
       </div>
 
       <div className="max-w-full overflow-x-auto custom-scrollbar">
         <div className="min-w-[1000px] xl:min-w-full">
-          <Chart options={options} series={series} type="area" height={310} />
+          <Chart options={options} series={series} type="bar" height={310} />
         </div>
       </div>
     </div>

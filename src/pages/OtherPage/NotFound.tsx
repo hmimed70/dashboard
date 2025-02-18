@@ -5,10 +5,11 @@ import PageMeta from "../../components/common/PageMeta";
 export default function NotFound() {
   return (
     <>
-      <PageMeta
-        title="React.js 404 Dashboard | TailAdmin - React.js Admin Dashboard Template"
-        description="This is React.js 404 Dashboard page for TailAdmin - React.js Tailwind CSS Admin Dashboard Template"
-      />
+   <PageMeta
+  title="E.P.I.C EXTRANET - Waste Collection and Transportation Dashboard"
+  description="The E.P.I.C EXTRANET organization was established in accordance with Decree No. 83-200 of March 19, 1983. EXTRANET is a public institution with industrial and commercial characteristics (E.P.I.C), responsible for cleaning, waste collection, and transportation for the 29 municipalities outside the city limits of the Wilaya of Algiers."
+/>
+
       <div className="relative flex flex-col items-center justify-center min-h-screen p-6 overflow-hidden z-1">
         <GridShape />
         <div className="mx-auto w-full max-w-[242px] text-center sm:max-w-[472px]">

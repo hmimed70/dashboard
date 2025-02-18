@@ -9,10 +9,11 @@ import TwentyOneIsToNine from "../../components/ui/videos/TwentyOneIsToNine";
 export default function Videos() {
   return (
     <>
-      <PageMeta
-        title="React.js Videos Tabs | TailAdmin - React.js Admin Dashboard Template"
-        description="This is React.js Videos page for TailAdmin - React.js Tailwind CSS Admin Dashboard Template"
-      />
+          <PageMeta
+  title="E.P.I.C EXTRANET - Waste Collection and Transportation Dashboard"
+  description="The E.P.I.C EXTRANET organization was established in accordance with Decree No. 83-200 of March 19, 1983. EXTRANET is a public institution with industrial and commercial characteristics (E.P.I.C), responsible for cleaning, waste collection, and transportation for the 29 municipalities outside the city limits of the Wilaya of Algiers."
+/>
+
       <PageBreadcrumb pageTitle="Videos" />
       <div className="grid grid-cols-1 gap-5 sm:gap-6 xl:grid-cols-2">
         <div className="space-y-5 sm:space-y-6">

@@ -10,9 +10,10 @@ export default function Ecommerce() {
   return (
     <>
       <PageMeta
-        title="React.js Ecommerce Dashboard | TailAdmin - React.js Admin Dashboard Template"
-        description="This is React.js Ecommerce Dashboard page for TailAdmin - React.js Tailwind CSS Admin Dashboard Template"
-      />
+  title="E.P.I.C EXTRANET - Waste Collection and Transportation Dashboard"
+  description="The E.P.I.C EXTRANET organization was established in accordance with Decree No. 83-200 of March 19, 1983. EXTRANET is a public institution with industrial and commercial characteristics (E.P.I.C), responsible for cleaning, waste collection, and transportation for the 29 municipalities outside the city limits of the Wilaya of Algiers."
+/>
+
       <div className="grid grid-cols-12 gap-4 md:gap-6">
         <div className="col-span-12 space-y-6 xl:col-span-7">
           <EcommerceMetrics />
@@ -27,7 +28,8 @@ export default function Ecommerce() {
         <div className="col-span-12">
           <StatisticsChart />
         </div>
-
+  {
+    /*
         <div className="col-span-12 xl:col-span-5">
           <DemographicCard />
         </div>
@@ -35,6 +37,10 @@ export default function Ecommerce() {
         <div className="col-span-12 xl:col-span-7">
           <RecentOrders />
         </div>
+    
+    */
+  }
+    
       </div>
     </>
   );

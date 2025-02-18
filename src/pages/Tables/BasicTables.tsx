@@ -7,13 +7,14 @@ import PageMeta from "../../components/common/PageMeta";
 export default function BasicTables() {
   return (
     <>
-      <PageMeta
-        title="React.js Basic Tables Dashboard | TailAdmin - Next.js Admin Dashboard Template"
-        description="This is React.js Basic Tables Dashboard page for TailAdmin - React.js Tailwind CSS Admin Dashboard Template"
-      />
-      <PageBreadcrumb pageTitle="Basic Tables" />
+         <PageMeta
+  title="E.P.I.C EXTRANET - Waste Collection and Transportation Dashboard"
+  description="The E.P.I.C EXTRANET organization was established in accordance with Decree No. 83-200 of March 19, 1983. EXTRANET is a public institution with industrial and commercial characteristics (E.P.I.C), responsible for cleaning, waste collection, and transportation for the 29 municipalities outside the city limits of the Wilaya of Algiers."
+/>
+
+      <PageBreadcrumb pageTitle="Users" />
       <div className="space-y-6">
-        <ComponentCard title="Basic Table 1">
+        <ComponentCard title="Users">
           <BasicTableOne />
         </ComponentCard>
       </div>

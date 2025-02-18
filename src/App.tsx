@@ -16,6 +16,8 @@ import Buttons from "./pages/UiElements/Buttons";
 import Images from "./pages/UiElements/Images";
 import Videos from "./pages/UiElements/Videos";
 import UserProfiles from "./pages/UserProfiles";
+import Activities from "./pages/Tables/Activities";
+import Suggestions from "./pages/Tables/Suggestions";
 
 export default function App() {
   return (
@@ -35,6 +37,8 @@ export default function App() {
 
             {/* Tables */}
             <Route path="/basic-tables" element={<BasicTables />} />
+            <Route path="/activity" element={<Activities />} />
+            <Route path="/suggestions" element={<Suggestions />} />
 
             {/* Ui Elements */}
             <Route path="/alerts" element={<Alerts />} />

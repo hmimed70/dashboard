@@ -13,8 +13,11 @@ import {
   PageIcon,
   PieChartIcon,
   PlugInIcon,
+  ShootingStarIcon,
   TableIcon,
+  TaskIcon,
   UserCircleIcon,
+  UserIcon,
 } from "../icons";
 
 type NavItem = {
@@ -28,8 +31,23 @@ const navItems: NavItem[] = [
   {
     icon: <GridIcon />,
     name: "Dashboard",
-    subItems: [{ name: "Ecommerce", path: "/", pro: false }],
+    path: "/",
   },
+  {
+    name: "Users",
+    path: "/basic-tables",
+    icon: <UserIcon />,
+      },
+      {
+        name: "Activity",
+        path: "/activity",
+        icon: <TaskIcon />,
+          },
+          {
+            name: "Suggestions & concerns",
+            path: "/suggestions",
+            icon: <ShootingStarIcon />,
+              },
   {
     icon: <CalenderIcon />,
     name: "Calendar",
@@ -46,10 +64,16 @@ const navItems: NavItem[] = [
     icon: <ListIcon />,
     subItems: [{ name: "Form Elements", path: "/form-elements", pro: false }],
   },
+
+      
   {
     name: "Tables",
     icon: <TableIcon />,
-    subItems: [{ name: "Basic Tables", path: "/basic-tables", pro: false }],
+    subItems: [{ name: "Users", path: "/basic-tables", pro: false },
+      { name: "Activity", path: "/activity", pro: false },
+      { name: "Suggestions & concerns", path: "/suggestions", pro: false }
+
+    ],
   },
   {
     name: "Pages",
@@ -303,31 +327,14 @@ const AppSidebar: React.FC = () => {
         }`}
       >
         <Link to="/">
-          {isExpanded || isHovered || isMobileOpen ? (
-            <>
-              <img
-                className="dark:hidden"
-                src="/images/logo/logo.svg"
-                alt="Logo"
-                width={150}
-                height={40}
-              />
-              <img
-                className="hidden dark:block"
-                src="/images/logo/logo-dark.svg"
-                alt="Logo"
-                width={150}
-                height={40}
-              />
-            </>
-          ) : (
+         
             <img
               src="/images/logo/logo-icon.svg"
               alt="Logo"
               width={32}
               height={32}
             />
-          )}
+        
         </Link>
       </div>
       <div className="flex flex-col overflow-y-auto duration-300 ease-linear no-scrollbar">

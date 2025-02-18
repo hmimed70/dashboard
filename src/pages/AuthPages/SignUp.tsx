@@ -13,9 +13,10 @@ export default function SignUp() {
   return (
     <>
       <PageMeta
-        title="React.js SignUp Dashboard | TailAdmin - Next.js Admin Dashboard Template"
-        description="This is React.js SignUp Tables Dashboard page for TailAdmin - React.js Tailwind CSS Admin Dashboard Template"
-      />
+  title="E.P.I.C EXTRANET - Waste Collection and Transportation Dashboard"
+  description="The E.P.I.C EXTRANET organization was established in accordance with Decree No. 83-200 of March 19, 1983. EXTRANET is a public institution with industrial and commercial characteristics (E.P.I.C), responsible for cleaning, waste collection, and transportation for the 29 municipalities outside the city limits of the Wilaya of Algiers."
+/>
+
       <div className="relative flex w-full h-screen overflow-hidden bg-white z-1 dark:bg-gray-900">
         <div className="flex flex-col flex-1 p-6 rounded-2xl sm:rounded-none sm:border-0 sm:p-8">
           <div className="w-full max-w-md pt-5 mx-auto sm:py-10">

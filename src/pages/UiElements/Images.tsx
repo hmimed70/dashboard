@@ -9,10 +9,11 @@ import PageMeta from "../../components/common/PageMeta";
 export default function Images() {
   return (
     <>
-      <PageMeta
-        title="React.js Images Dashboard | TailAdmin - React.js Admin Dashboard Template"
-        description="This is React.js Images page for TailAdmin - React.js Tailwind CSS Admin Dashboard Template"
-      />
+     <PageMeta
+  title="E.P.I.C EXTRANET - Waste Collection and Transportation Dashboard"
+  description="The E.P.I.C EXTRANET organization was established in accordance with Decree No. 83-200 of March 19, 1983. EXTRANET is a public institution with industrial and commercial characteristics (E.P.I.C), responsible for cleaning, waste collection, and transportation for the 29 municipalities outside the city limits of the Wilaya of Algiers."
+/>
+
       <PageBreadcrumb pageTitle="Images" />
       <div className="space-y-5 sm:space-y-6">
         <ComponentCard title="Responsive image">

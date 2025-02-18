@@ -1,19 +1,10 @@
+import { useState } from "react";
 import Chart from "react-apexcharts";
 import { ApexOptions } from "apexcharts";
 import { MoreDotIcon } from "../../icons";
 import { Dropdown } from "../ui/dropdown/Dropdown";
 import { DropdownItem } from "../ui/dropdown/DropdownItem";
-import { useState } from "react";
-
-type DairaData = {
-  Zeralda: number[];
-  Rouiba: number[];
-  DarElBeida: number[];
-  Baraki: number[];
-  Draria: number[];
-  Cheraga: number[];
-  Birtouta: number[];
-};
+import { dairaData, xaxisCategories, DairaData } from "../../data/index"; // Import the data
 
 export default function MonthlySalesChart() {
   const options: ApexOptions = {
@@ -82,17 +73,6 @@ export default function MonthlySalesChart() {
     },
   };
 
-  // Data grouped by daïra
-  const dairaData: DairaData = {
-    Zeralda: [10, 15, 7, 12, 5],
-    Rouiba: [3, 16, 18],
-    DarElBeida: [16, 13, 9, 14],
-    Baraki: [8, 6, 17],
-    Draria: [11, 19, 9, 16, 14],
-    Cheraga: [5, 8, 14, 17, 12],
-    Birtouta: [18, 8, 19, 11],
-  };
-
   const [isOpen, setIsOpen] = useState(false);
   const [selectedDaïra, setSelectedDaïra] = useState<keyof DairaData | "all">("all");
 
@@ -103,25 +83,6 @@ export default function MonthlySalesChart() {
       : dairaData[selectedDaïra];
 
   // Update xaxis categories based on selected daïra
-  const xaxisCategories = {
-    Zeralda: ["Mahelma", "Rahmania", "Souidania", "Staoueli", "Zéralda"],
-    Rouiba: [      "Rouiba", "Reghaia", "Harraoua"    ],
-    DarElBeida: [ "Ain Taya", "Bab Ezzouar", "Bordj El Kiffan", "Dar El Beida"],
-    Baraki: [      "Sidi Moussa", "Les Eucalyptus", "Baraki"]      ,
-    Draria: ["Baba Hassen", "Douera", "Draria", "El Achour", "Khraïssia"],
-    Cheraga: ["Aïn Benian", "Cheraga", "Dely Ibrahim", "Ouled Fayet", "El Hammamet"],
-    Birtouta: ["Birtouta", "Ouled Chebel", "Tessala El Merdja"],
-    all: [
-      "Mahelma", "Rahmania", "Souidania", "Staoueli", "Zéralda", 
-      "Rouiba", "Reghaia", "Harraoua", 
-      "Ain Taya", "Bab Ezzouar", "Bordj El Kiffan", "Dar El Beida",
-      "Sidi Moussa", "Les Eucalyptus", "Baraki", 
-      "Baba Hassen", "Douera", "Draria", "El Achour", "Khraïssia",
-      "Aïn Benian", "Cheraga", "Dely Ibrahim", "Ouled Fayet", "El Hammamet",
-      "Birtouta", "Ouled Chebel", "Tessala El Merdja",
-    ],
-  };
-
   const series = [
     {
       name: "Sales",
